@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Wedding Countdown</title>
   <style>
     body {
@@ -8,37 +9,37 @@
       text-align: center;
       background: #fff9f9;
       color: #5a3e36;
-	  max-width: 600px; /*Narrower webpage*/
-	  margin: 0 auto;
-	  padding: 20px;
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 10px;
+      box-sizing: border-box;
     }
     h1 {
-      font-size: 18px; /* Reduced from default size */
-      margin: 10px 0; /* Adjusted margin */
+      font-size: 20px;
+      margin: 5px 0;
     }
     .invite-container {
-      position: relative; /* Add this */
-      display: inline-block; /* Add this */
-      margin: 20px auto; /* Keeps your original margin */
+      position: relative;
+      display: inline-block;
+      margin: 10px auto;
     }
     .invite-img {
-      width: 90%;
-      max-width: 600px;
-      /* Remove margin: 20px auto; since it's now on the container */
+      width: 95%;
+      max-width: 400px;
     }
     .countdown {
-      font-size: 18px;
-      margin: 10px;
+      font-size: 16px;
+      margin: 10px 0;
+      padding: 0 10px;
     }
-    /* Add this new class for the clickable area */
     .clickable-area {
       position: absolute;
-      top: 71%; /* Adjust this to match your "Click Here" text position */
+      top: 71%;
       left: 65%;
-      width: 110px; /* Adjust to cover your text width */
-      height: 60px; /* Adjust to cover your text height */
+      width: 110px;
+      height: 60px;
       transform: translate(-50%, -50%);
-      opacity: 0; /* Makes it invisible */
+      opacity: 0;
       cursor: pointer;
     }
   </style>
@@ -46,7 +47,6 @@
 <body>
   <h1>Join us as we start our forever!</h1>
   
-  <!-- Wrap your image in a container and add the clickable link -->
   <div class="invite-container">
     <img class="invite-img" src="Wedding invitationAR.png" alt="Wedding invitation">
     <a href="https://maps.app.goo.gl/QXzkr15WgTJQSrPn7" class="clickable-area"></a>
@@ -55,8 +55,7 @@
   <div class="countdown" id="countdown"></div>
 
   <script>
-    // SET YOUR WEDDING DATE HERE (YYYY-MM-DD)
-    const weddingDate = new Date("2025-08-28").getTime(); // ⚠️ CHANGE THIS DATE!
+    const weddingDate = new Date("2025-08-28").getTime();
     
     function updateCountdown() {
       const now = new Date().getTime();
@@ -64,11 +63,11 @@
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       
       document.getElementById("countdown").innerHTML = 
-        `The countdown is on. Only <strong>${days}</strong> days left until our wedding! 💖`;
+        `${days} days until our wedding! 💖`;
     }
     
-    updateCountdown(); // Run once immediately
-    setInterval(updateCountdown, 86400000); // Update every 24 hours
+    updateCountdown();
+    setInterval(updateCountdown, 86400000);
   </script>
 </body>
 </html>
