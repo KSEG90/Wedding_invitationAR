@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Our Wedding Countdown</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background: #fff9f9;
+      color: #5a3e36;
+    }
+    .invite-container {
+      position: relative; /* Add this */
+      display: inline-block; /* Add this */
+      margin: 20px auto; /* Keeps your original margin */
+    }
+    .invite-img {
+      width: 80%;
+      max-width: 600px;
+      /* Remove margin: 20px auto; since it's now on the container */
+    }
+    .countdown {
+      font-size: 24px;
+      margin: 20px;
+    }
+    /* Add this new class for the clickable area */
+    .clickable-area {
+      position: absolute;
+      top: 55%; /* Adjust this to match your "Click Here" text position */
+      left: 70%;
+      width: 110px; /* Adjust to cover your text width */
+      height: 50px; /* Adjust to cover your text height */
+      transform: translate(-50%, -50%);
+      opacity: 0; /* Makes it invisible */
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Join us as we start our forever!</h1>
+  
+  <!-- Wrap your image in a container and add the clickable link -->
+  <div class="invite-container">
+    <img class="invite-img" src="Wedding invitationAR.png" alt="Wedding invitation">
+    <a href="https://maps.app.goo.gl/QXzkr15WgTJQSrPn7" class="clickable-area"></a>
+  </div>
+  
+  <div class="countdown" id="countdown"></div>
+
+  <script>
+    // SET YOUR WEDDING DATE HERE (YYYY-MM-DD)
+    const weddingDate = new Date("2025-08-28").getTime(); // ⚠️ CHANGE THIS DATE!
+    
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = weddingDate - now;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      
+      document.getElementById("countdown").innerHTML = 
+        `The countdown is on. Only <strong>${days}</strong> days left until our wedding! 💖`;
+    }
+    
+    updateCountdown(); // Run once immediately
+    setInterval(updateCountdown, 86400000); // Update every 24 hours
+  </script>
+</body>
+</html>
